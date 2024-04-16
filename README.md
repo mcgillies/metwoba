@@ -2,6 +2,8 @@
 
 **METWOBA** is a comprehensive offensive statistic developed for Major League Baseball, inspired by the wOBA metric originally created by Fangraphs. For more details on the original wOBA, please visit [Fangraphs' wOBA page](https://library.fangraphs.com/offense/woba/). To see the current METWOBA leaderboard, check [here](data/metwOBAlb.csv).
 
+Data is obtained from [Baseball Savant](https://baseballsavant.mlb.com/)
+
 ## Calculation of METWOBA
 
 METWOBA is calculated using the following formula:
@@ -29,5 +31,7 @@ Baseball Savant's run expectancy is used to evaluate plays as we hope to reflect
 
 After determining the RC and the outcome coefficients, these values are multiplied together to compute a total score contribution for each successful outcome. The sum of each player's score contributions is then divided by their total plate appearances to compute the METWOBA value. Currently the leaderboard filters to plate appearances above the 30% quantile of overall plate appearances. 
 
-
+## Future Works
+Further works are mainly focused on optimizing the outcome and run coefficients, specifically on designing the scaling so that the statistic is easily interpretable. Currently the scale of metwOBA does not follow any other major statistics, and therefore may be difficult to interpret to the viewer. I also hope to develop a baseball
+savant data scraper in order to update the data daily automatically. 
 
