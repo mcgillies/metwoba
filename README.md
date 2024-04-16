@@ -17,10 +17,13 @@ You can find the current coefficients [here](data/outcome_coefs.csv).
 
 ## Run Coefficient (RC)
 
-**RC** or the "run coefficient" is a key component in calculating METWOBA. It is derived using a Random Forest machine learning model that takes exit velocity and launch angle as inputs to predict changes in run expectancy. These predictions are rescaled as follows:
+**RC** or the "run coefficient" is a key component in calculating METWOBA. The desire here is to add an "outcomeless" proponent of the statistic, to attempt to reward hard contact outs over bloop hits. It is derived using a Random Forest machine learning model that takes exit velocity and launch angle as inputs to predict changes in run expectancy. These predictions are rescaled as follows:
 
 - **For predictions less than zero**: A logistic function is applied to map the value to the range [0, 1].
 - **For predictions greater than zero**: An exponential transformation is used (`e^p + 1`) to ensure the value is greater than 1.
+
+## Use of Run Expectancy
+Baseball Savant's run expectancy is used to evaluate plays as we hope to reflect the value of timing and 'clutchness' in players. A three-run home run produces more value than a solo home run, and through using run expectancy we hope to account for this aspect of baseball.
 
 ## Final Computation
 
