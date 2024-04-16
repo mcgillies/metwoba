@@ -6,7 +6,7 @@
 
 METWOBA is calculated using the following formula:
 
-\[ \text{METWOBA} = \frac{(BB\_coef \times BB) + (HBP\_coef \times HBP) + (1B\_coef \times 1B \times RC) + (2B\_coef \times 2B \times RC) + (3B\_coef \times 3B \times RC) + (HR\_coef \times HR \times RC)}{PA} \]
+METWOBA = (BB_coef * BB + HBP_coef * HBP + 1B_coef * 1B * RC + 2B_coef * 2B * RC + 3B_coef * 3B * RC + HR_coef * HR * RC) / PA
 
 Each term in the numerator represents a "successful" outcome in baseball where the batter reaches base safely. The coefficients for each outcome (BB_coef, HBP_coef, etc.) are determined as follows:
 
