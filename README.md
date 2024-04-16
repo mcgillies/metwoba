@@ -24,7 +24,7 @@ You can find the current coefficients [here](data/outcome_coefs.csv).
 
 ## Final Computation
 
-After determining the RC and the outcome coefficients, these values are multiplied together to compute a total score contribution for each successful outcome. The sum of each player's score contributions is then divided by their total plate appearances to compute the METWOBA value.
+After determining the RC and the outcome coefficients, these values are multiplied together to compute a total score contribution for each successful outcome. The sum of each player's score contributions is then divided by their total plate appearances to compute the METWOBA value. Currently the leaderboard filters to plate appearances above the 30% quantile of overall plate appearances. 
 
 
 
