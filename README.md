@@ -1,14 +1,30 @@
-METWOBA is an overarching offensive statistic for Major League Baseball. Computations are inspired by wOBA created by Fangraphs (https://library.fangraphs.com/offense/woba/). See the current leaderboard [here](data/metwOBAlb.csv)
+# METWOBA: An Advanced Offensive Metric for Major League Baseball
 
-We calculate metwOBA utilizing the formula: (BB_coef*BB + HBP_coef*HBP + 1B_coef*1B*RC + 2B_coef*2B*RC + 3B_coef*3B*RC + HR_coef*HR*RC)/PA, where each of the items in the numerator represents a "successful" outcome in baseball (where the batter reaches base). 
+**METWOBA** is a comprehensive offensive statistic developed for Major League Baseball, inspired by the wOBA metric originally created by Fangraphs. For more details on the original wOBA, please visit [Fangraphs' wOBA page](https://library.fangraphs.com/offense/woba/). To see the current METWOBA leaderboard, check [here](data/metwOBAlb.csv).
 
-Where BB_coef, HBP_coef, etc. are calculated in the following way: 
-- First group each event and find the average change in run expectancy for each event
-- Then rescale the average changes in run expectancy so that the average throughout is 1.
-  The current coefficients are [here](data/outcome_coefs.csv)
+## Calculation of METWOBA
 
-RC represents what I have coined the "run coefficient". This is calculated using a Random Forest machine learning model, where exit velocity and launch angle are used as inputs to predict the change in run expectancy. These are then rescaled using a piecewise function, where if the prediction of run coefficient is less than zero the logistic function is mapped to a value in [0,1], and if the prediction is greater than one an exponential transformation is applied (e^p + 1) to ensure the value is greater than 1. 
+METWOBA is calculated using the following formula:
 
-Once RC and the outcome coefficients are calculated, these are multiplied together to compute a total score contribution for each successful outcome. Then we simply calculate the sum of each player's score contribution, and divide it by their total plate appearances to compute metwOBA
+\[ \text{METWOBA} = \frac{(BB\_coef \times BB) + (HBP\_coef \times HBP) + (1B\_coef \times 1B \times RC) + (2B\_coef \times 2B \times RC) + (3B\_coef \times 3B \times RC) + (HR\_coef \times HR \times RC)}{PA} \]
+
+Each term in the numerator represents a "successful" outcome in baseball where the batter reaches base safely. The coefficients for each outcome (BB_coef, HBP_coef, etc.) are determined as follows:
+
+1. **Grouping by Event**: First, each event type (like walks, hits, etc.) is grouped to find the average change in run expectancy for each event.
+2. **Rescaling**: These average changes are then rescaled so that the average across all events is 1.
+
+You can find the current coefficients [here](data/outcome_coefs.csv).
+
+## Run Coefficient (RC)
+
+**RC** or the "run coefficient" is a key component in calculating METWOBA. It is derived using a Random Forest machine learning model that takes exit velocity and launch angle as inputs to predict changes in run expectancy. These predictions are rescaled as follows:
+
+- **For predictions less than zero**: A logistic function is applied to map the value to the range [0, 1].
+- **For predictions greater than zero**: An exponential transformation is used (`e^p + 1`) to ensure the value is greater than 1.
+
+## Final Computation
+
+After determining the RC and the outcome coefficients, these values are multiplied together to compute a total score contribution for each successful outcome. The sum of each player's score contributions is then divided by their total plate appearances to compute the METWOBA value.
+
 
 
