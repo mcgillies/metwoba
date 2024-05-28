@@ -2,7 +2,7 @@
 
 **METWOBA** is a comprehensive offensive statistic developed for Major League Baseball, inspired by the wOBA metric originally created by Fangraphs. For more details on the original wOBA, please visit [Fangraphs' wOBA page](https://library.fangraphs.com/offense/woba/). To see the current METWOBA leaderboard, check [here](data/metwOBAlb.csv).
 
-Data is obtained from [Baseball Savant](https://baseballsavant.mlb.com/)
+Data is obtained from [Baseball Savant](https://baseballsavant.mlb.com/), credit to pybaseball for assisting with data scraping. 
 
 ## Calculation of METWOBA
 
