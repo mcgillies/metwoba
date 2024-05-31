@@ -6,7 +6,7 @@ on:
       - main
   schedule:
     - cron: '0 20 * * *'  # This cron syntax means the workflow will run every day at midnight UTC
-    - cron: '33 19 * * *'
+    - cron: '50 19 * * *'
 jobs:
   update-repo:
     runs-on: ubuntu-latest
