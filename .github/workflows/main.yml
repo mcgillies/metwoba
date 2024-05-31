@@ -3,7 +3,7 @@ name: Update Repository Daily
 on:
   schedule:
     - cron: '0 20 * * *'  # This cron syntax means the workflow will run every day at midnight UTC
-    - cron: '27 19 * * *'
+    - cron: '33 19 * * *'
 jobs:
   update-repo:
     runs-on: ubuntu-latest
