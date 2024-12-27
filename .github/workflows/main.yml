@@ -1,9 +1,11 @@
 name: Update Repository Daily
 
 on:
+  push:
+    branches: 
+      - main
   schedule:
-    - cron: '0 20 * * *'  # This cron syntax means the workflow will run every day at midnight UTC
-
+    - cron: '22 20,5 * * *' 
 jobs:
   update-repo:
     runs-on: ubuntu-latest
@@ -20,7 +22,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt  # Adjust this line based on your project's requirements
+        pip install pandas numpy matplotlib datetime scikit-learn seaborn pybaseball
+
 
     - name: Run the update script
       run: |
