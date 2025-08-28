@@ -34,7 +34,7 @@ from pybaseball import statcast, playerid_reverse_lookup
 
 today_date = datetime.today().strftime('%Y-%m-%d')
 
-statcast_data=statcast(start_dt="2024-03-27", end_dt=today_date)
+statcast_data=statcast(start_dt="2025-03-27", end_dt=today_date)
 batter_ids = statcast_data['batter'].unique().tolist()
 
 # Retrieve the batter names using playerid_reverse_lookup
@@ -216,7 +216,7 @@ pipe_rf1 = make_pipeline(ct, RandomForestRegressor(random_state = 123, n_jobs = 
 # Fitting and calculating test score:
 pipe_rf1.fit(X_train, y_train)
 test_predict = pipe_rf1.predict(X_test)
-test_score = mean_squared_error(y_test, pipe_rf1.predict(X_test), squared = False)
+test_score = np.sqrt(mean_squared_error(y_test, pipe_rf1.predict(X_test)))
 test_score
 
 
